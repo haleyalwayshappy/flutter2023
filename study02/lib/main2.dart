@@ -181,10 +181,10 @@ basicMain() {
 
 
   //2. null 관련 연산자
-  // double? number3 = 1;
-  // double? number4 ;  // 자동으로 null값 지정
-  // number4 ??= 3; // ??를 사용하면 기존값이 null일때만 저장됨
-  // number4 ??= 5; // 기존값이 null값이 아니기떄문에 3으로 유지된다.
+  double? number3 = 1;
+  double? number4 ;  // 자동으로 null값 지정
+  number4 ??= 3; // ??를 사용하면 기존값이 null일때만 저장됨
+  number4 ??= 5; // 기존값이 null값이 아니기떄문에 3으로 유지된다.
 
   //3. 비교연산자
   /**(<)(>)(>=)(<=)(==)(!=) */
@@ -227,15 +227,15 @@ basicMain() {
    * break 키워드를 사용하면 switch 문 밖으로 나갈 수 있다.
    * enum 과 같이 사용하면 유용
    */
-  test1 status = test1.approved;
+  Status status = Status.approved;
   switch(status){
-    case test1.approved:
+    case Status.approved:
       print('승인 상태입니다.');
       break;
-    case test1.pending:
+    case Status.pending:
       print('대기 상태입니다.');
       break;
-    case test1.rejected:
+    case Status.rejected:
       print('거절 상태입니다.');
       break;
     default:
@@ -244,20 +244,20 @@ basicMain() {
 
   }
 
-  print(test1.values); //{
-
+  print(Status.values); //[Status.approved, Status.pending, Status.rejected] > List
+  print(Status.values.runtimeType); //List<Status>
 
   //3. for문
   // 기본적인 for 문
   for(int i =0; i<3; i++){
     print(i);
-  }
+  };
 
   //for in 문 : List의 모든 값을 순회하고 싶을 떄 사용
   List<int>numberList = [3,6,8];
   for(int numbers in numberList){
     print(numbers); // 3,6,8을 각각 반환한다.
-  }
+  };
 
 
   //5. while문 / do while문
@@ -268,7 +268,7 @@ basicMain() {
   int total = 0;
   while(total<10){ //10보다 작으면 계속 실행
     total+=1;
-  }
+  };
   print(total);
 
   //do... while 문
@@ -283,7 +283,7 @@ basicMain() {
 }
 
 //4. enum (class ?)
-enum test1 {
+enum Status {
   approved,
   pending,
   rejected,
