@@ -28,12 +28,50 @@ listFunction(){
   print('[0]번값 삭제 :  $family');
 
 
+  /// map
+  Map<String, String> dictionary = {
+    'HarryPorter' : '해리 포터',
+    'Ron Weasley' : '론 위즐리',
+    'Herminoe Granger' : '해르미온느 그레인저',
+  };
+
+  // 추가
+  dictionary.addAll({
+    'ron ron':'론론 위즐리즐리',
+    'hong' : '홍은'
+  });
+
+
+  // 추가 + 수정 둘다 가능
+  dictionary['ron ron'] = '론론';
+
+  // 수정 두가지 방법이 있음
+  dictionary.update('Ron Weasley', (value) => '롱 위즐리');
+
+
+
+  ///set 은  list 와 같은 함수 사용
+
+  Set<String> day6 = {'도운','도운','영현','성진','원필','영현'};
+
+  // 추가
+  day6.add('제이');
+  // 삭제
+  day6.remove('원필');
+
+
+  // 수정 ..?
+  if (day6.contains('도운')) {
+    day6.remove('도운');
+    day6.add('주원');
+  }
+
 
   /** ------------------------------------------------------------------ */
 
 // 프린트 함수 내에서 특수 문자 사용 \)
-print ('\\\$  \\\' :  \$ \'  + 그 외의 특수 문자들은 그대로 사용 가능 . , " - _ !@#%^&**()');
+print ('\$  \' :  \$ \'  + 그 외의 특수 문자들은 그대로 사용 가능 . , " - _ !@#%^&**()');
 }
 
 
-//콜
+// 변수 타입 > String , int , bool , double , num

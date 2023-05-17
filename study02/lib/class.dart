@@ -2,8 +2,8 @@
 // 클래스 키워드를 입력 후 클래스명을 지정해 클래스 선언
 class IdolOrigin{
   String name = '블랙핑크';
-  // 프라이빗 변수
-  final String _fanName = '블링크';
+  // 프라이빗 변수 (_변수명)
+  String _fanName = '블링크';
 
 
   void sayName(){
@@ -28,6 +28,7 @@ class Idol{
   final String name;
   final List<String> members;
 
+
   /// const 를 선언할 경우에는 main쪽에서도 const를 선언해줘야한다.
   ///
 
@@ -37,12 +38,14 @@ class Idol{
   /// 두 번째 방식은 인자와 멤버 변수의 이름이 같을 때 편리합니다.
 
 
+
   // 생성자 (constructor)
   /// Idol();
 
 
   //포지셔널 파라미터
-  // Idol(String name , List<String> members): this.name = name, this.members = members;
+
+  // dol(String name , List<String> members): this.name = name, this.members = members;
   Idol(this.name,this.members);
 
 
@@ -74,9 +77,12 @@ class Idol{
 class IdolClass{
   String name ;
   List<String> members ;
+   String _test3 ='';
+
 
   //네임드 파라미터
   IdolClass({required String name, required List<String> members}):this.name = name , this.members =members;
+
   IdolClass.fromList(List values)
       :this.members = values[0], this.name = values[1];
 
@@ -92,16 +98,16 @@ class IdolClass{
   }
 
 
-
   // 데이터 가공 할때 사용
+  // 게터 세터를 사용해서 프라이빗 변수 변경 가능
   // getter
   String get firstMember{
-    return this.members[0];
+    return this._test3;
   }
 
   //setter
   set firstMember(String name){
-    this.members[0] = name;
+    this._test3 = name;
   }
 }
 
