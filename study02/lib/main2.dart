@@ -181,10 +181,10 @@ basicMain() {
 
 
   //2. null 관련 연산자
-  double? number3 = 1;
-  double? number4 ;  // 자동으로 null값 지정
-  number4 ??= 3; // ??를 사용하면 기존값이 null일때만 저장됨
-  number4 ??= 5; // 기존값이 null값이 아니기떄문에 3으로 유지된다.
+  // double? number3 = 1;
+  // double? number4 ;  // 자동으로 null값 지정
+  // number4 ??= 3; // ??를 사용하면 기존값이 null일때만 저장됨
+  // number4 ??= 5; // 기존값이 null값이 아니기떄문에 3으로 유지된다.
 
   //3. 비교연산자
   /**(<)(>)(>=)(<=)(==)(!=) */

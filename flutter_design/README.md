@@ -1,16 +1,155 @@
-# flutter_design
+#플러터에서 지원하는 디자인
+머터리얼 디자인 /쿠퍼티노 디자인
+Android와 iOS 플랫폼의 네이티브 디자인 가이드라인을 따르며, 사용자 인터페이스를 구성하는 방식에서 차이가 있다.
 
-A new Flutter project.
 
-## Getting Started
+머터리얼 디자인(Material Design):
+Google에서 개발한 디자인 시스템으로, 안드로이드 플랫폼에서 주로 사용된다.
+그림자, 테두리, 색상 등을 통해 요소의 계층 구조와 상호 작용을 시각적으로 나타내는 특징.
 
-This project is a starting point for a Flutter application.
+쿠퍼티노 디자인(Cupertino Design):
+Apple에서 개발한 디자인 시스템으로, iOS 플랫폼에서 주로 사용.
+iOS 기기의 디자인 가이드라인을 따라 스무스하고 현실적인 사용자 경험을 제공
+유리, 반투명성, 둥근 모서리 등을 통해 모던하고 간결한 디자인 요소를 강조
+플러터에서는 Cupertino 위젯과 쿠퍼티노 디자인 관련 위젯들을 사용하여 쿠퍼티노 디자인을 구현할 수 있습니다.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+---------------------------------
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Scaffold는 Material Design 앱의 기본적인 레이아웃 구조를 제공하는 위젯
+앱의 주요 구성 요소인 AppBar , Drawer , BottomNavigationBar등 다양한 위젯들을 포함할 수 있는 템플릿 역할을 한다.
+
+Scaffold는 home 속성에 배치되어 사용한다. 앱의 기본 화면을 정의하고 appBar / bottom요소들을 쉽게 추가할 수 있다.
+
+(,) 마지막 매개변수의 끝에 ,기호를 추가하는 코딩 스탠다드가 있다. 에러는 나지않지만 코드 자동정리를 실행했을때 , 기호를 기준으로 줄 나눔이 된다.
+
+
+android / ios 폴더는 특별히 만질 일은 없고, 네이티브에서 설정해줘야 할 떄  진행하면됨 
+
+lib폴더 안에서 진행 
+
+pubspec.yaml > 플러터 버전이나 외부 라이브러리를 정의할떄 사용한다. 
+
+--------------------------------
+
+#위젯
+플러터에서 화면에 보여지는 UI와 관련된 모든 요소는 위젯으로 구성되어있다. 
+위젯은 자식을 하나만 갖는 위젯과 자식을 여럿 갖는 위젯으로 나뉜다. 
+
+자식을 하나만 받는 위젯 -child로 매개변수를 입력받는다
+다수의 자식을 입력할 수 있는 위젯 -children
+
+##자식을 하나만 갖는 위젯 (주로 사용하는 위젯) 
+Container 위젯
+    자식을 담는 컨테이너 역할, 배경색, 너비와 높이, 테두리등의 디자인을 지정할 수있음
+
+GestureDetector 위젯
+    제스처 기능을 자식위젯에서 인식 탭, 드래그, 더블클릭 등 
+
+SizedBox 위젯     
+    높이와 너비를 지정하는 위젯 Container위젯과 다르게 디자인적인 요소는 적용 할 수 없음 
+    const 생성자로 선언할 수있어서 퍼포먼스 측면에서 더욱 효율적 
+
+##다수의 자식을 입력할 수 있는 위젯
+Column위젯
+    childred 매개변수에 입력된 모든 위젯들을 세로로 배치 
+
+Row위젯
+    childred 매개변수에 입력된 모든 위젯들을 가로로 배치   
+
+ListView위젯
+    리스트 구현시 사용, 입력된 위젯이 화면을 벗어나게 되면 스크롤이 가능해짐 
+
+###플러터에서 기본으로 제공하는 위젯 > 공식사이트에서 API확인이 가능하다.
+`https://docs.flutter.dev/ui/widgets`
+
+
+##텍스트 관련 위젯 
+TextStyle: 텍스트 스타일을 지정하기 위한 클래스. 폰트, 색상, 배경 색상, 글자 간격, 줄 간격 등을 지정할 수 있다.
+TextDecoration: 텍스트 장식을 지정하기 위한 클래스. 밑줄, 취소선, 줄 긋기 등을 추가할 수 있다.
+textAlign: 텍스트 정렬을 지정하기 위한 속성. 왼쪽, 오른쪽, 가운데 등의 정렬 방식을 선택할 수 있다.
+maxLines: 최대 줄 수를 지정하기 위한 속성. 텍스트가 너무 길어서 화면에서 보이지 않는 경우에 유용.
+overflow: 텍스트가 영역을 벗어나는 경우에 처리 방법을 지정하기 위한 속성. ellipsis, clip 등의 값을 사용하여 처리할 수 있다.
+textDirection: 텍스트 방향을 지정하기 위한 속성. ltr(왼쪽에서 오른쪽)과 rtl(오른쪽에서 왼쪽) 등의 값을 사용할 수 있다.
+softWrap: 자동 줄 바꿈 여부를 지정하기 위한 속성. true로 설정하면 텍스트가 영역을 벗어나는 경우에 자동으로 줄 바꿈을 수행.
+textScaleFactor: 텍스트의 크기 비율을 지정하기 위한 속성. 기본값은 1.0이며, 2.0으로 설정하면 텍스트 크기가 2배 커진다.
+
+
+    Text( // 내용
+        'hello world',
+        style:TextStyle( // 스타일
+          fontSize: 24.0, // 폰트 크기
+          fontWeight: FontWeight.w700, //굵기 
+          color:Colors.amber // 색상 
+        )
+    )
+
+##제스처관련위젯 
+###IconButton위젯
+onPressed: 버튼이 클릭되었을 때 실행할 콜백 함수를 지정하는 속성. 버튼이 눌렸을 때 수행할 작업을 정의할 수 있다.
+icon: IconButton에 표시될 아이콘을 지정하는 속성. Icons 클래스의 기본 아이콘을 사용하거나, 직접 아이콘 위젯을 생성하여 지정할 수 있다..
+color:아이콘 색상을 지정하는 속성.
+iconSize: 아이콘 크기를 지정하는 속성.
+tooltip: IconButton 위젯에 대한 툴팁을 지정하는 속성. 사용자가 버튼 위에 마우스를 올렸을 때 나타날 설명 텍스트 설정가능.
+alignment: 아이콘 정렬을 지정하는 속성. 기본적으로 중앙에 위치하며, start, end 등의 값으로 정렬 변경 가능.    
+splashColor: 버튼이 눌릴 때 발생하는 터치 효과의 색상을 지정하는 속성
+padding: IconButton의 내부 여백을 지정하는 속성
+disabledColor: 버튼이 비활성화되었을 때 아이콘의 색상을 지정하는 속성
+
+이 외에도 여러가지 기능이 있는데 필요할때 찾아보는것이 좋을듯 
+
+    OutlinedButton(
+        onPressed: (){}, // 클릭시 실행되는 내용
+        style: OutlinedButton.styleFrom( // 스타일지정
+        foregroundColor:Colors.red, // 주색상 지정 
+        ),
+        child: Text('아웃라인드버튼'), // 버튼에 들어가는 텍스트
+    ),
+
+###GestureDetector위젯
+onTap: 위젯이 한 번 탭되었을 때 실행할 콜백 함수를 지정하는 속성
+onDoubleTap: 위젯이 두 번 탭되었을 때 실행할 콜백 함수를 지정하는 속성
+onLongPress: 위젯이 길게 눌렸을 때 실행할 콜백 함수를 지정하는 속성
+
+-수평 또는 수직으로 드래그 할떄 - 
+onPanStart: 을용자가 위젯에서 터치를 시작했을 때 호출되는 콜백 함수
+onPanDown: 사용자가 위젯을 터치했을 때 실행할 콜백 함수를 지정하는 속성
+onPanUpdate: 사용자가 위젯을 터치한 상태로 이동할 때 실행할 콜백 함수를 지정하는 속성.
+onPanEnd: 사용자가 위젯에서 손을 뗐을 때 실행할 콜백 함수를 지정하는 속성
+
+이외에도 많은 속성이 있음 
+
+###FloatingAction Button위젯
+onPressed: 버튼이 클릭되었을 때 실행할 콜백 함수를 지정하는속성. 버튼이 눌렸을 때 수행할 작업을 정의할 수 있다.
+child: 버튼 내에 표시될 위젯을 지정하는 속성. 일반적으로 Icon 위젯이나 Text 위젯 등을 사용하여 버튼 내에 아이콘 또는 텍스트를 표시
+backgroundColor:  배경색을 지정하는 속성
+foregroundColor:  전체적인 색을 지정하는 속성
+tooltip: 위젯에 대한 툴팁을 지정하는 속성.사용자가 버튼 위에 마우스를 올렸을 때 나타날 설명 텍스트를 설정할 수 있다.
+elevation:그림자 효과를 지정하는 속성. 버튼의 높이에 따라 그림자가 어두워지거나 밝아진다.
+shape: 모양을 지정하는 속성. 기본값은 CircleBorder()이며, 다양한 모양의 버튼을 사용할 수 있다.
+
+
+
+
+#  day4
+##디자인관련위젯 
+###Container
+###SizedBox
+###Padding
+###SafeArea
+
+##배치관련 위젯
+###Row
+###Column
+###Flexible 
+###Expanded
+###Stack
+
+
+#플러그인 추가방법
+
+
+
+디자인프로그램에서 플러터로 바로 연결해서 소스 작성 가능한지?
+안드로이드, ios 둘다 확인할수있게 설정 하기 
+실제단말테스트 
