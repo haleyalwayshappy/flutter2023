@@ -1,39 +1,46 @@
 import 'package:flutter/material.dart';
-import 'package:tm_star/tab_component/second_tab.dart';
+import 'package:tm_star/component/tab_component/first_tab.dart';
+import 'package:tm_star/component/tab_component/second_tab.dart';
+import 'package:tm_star/component/tab_component/third_tab.dart';
 
-import '../tab_component/first_tab.dart';
-import '../tab_component/third_tab.dart';
 
-class BottomNavigationBarExample extends StatefulWidget {
-  const BottomNavigationBarExample({super.key});
+// Bottom Navigation Bar
+class BottomTabBar extends StatefulWidget {
+  const BottomTabBar({super.key});
 
   @override
-  State<BottomNavigationBarExample> createState() =>
-      _BottomNavigationBarExampleState();
+  State<BottomTabBar> createState() => _BottomTabBarState();
 }
 
-class _BottomNavigationBarExampleState
-    extends State<BottomNavigationBarExample> {
+class _BottomTabBarState extends State<BottomTabBar> {
+  // 선택된 탭 레이아웃의 리스트 인덱스값
   int _selectedIndex = 0;
-  static const TextStyle optionStyle =
-      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+
+  // 탭레이아웃에 매칭해줄 위젯리스트 만들어주기
   static const List<Widget> _widgetOptions = <Widget>[
-    FirstTab(),
+    FirstTab(), //  첫번쨰 탭 레이아웃
+    // SecondTab(),
     SecondTab(),
     ThirdTab(),
+    // FourthTab(),
     Text(
+      // 네번째 탭은 텍스트 화면으로 대체
       'Index 0: Home',
-      style: optionStyle,
+      style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
     ),
     Text(
       'Index 1: Home',
-      style: optionStyle,
+      style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
     ),
   ];
 
+  // 탭이 눌렸을 때 실행 될 함수
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
+      //log to here for selected, idx
+      print('_selectedIndex $_selectedIndex');
+      print('index $index');
     });
   }
 
@@ -41,6 +48,7 @@ class _BottomNavigationBarExampleState
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
+        // 화면에 보여지는 부분 (위젯옵션)
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -50,40 +58,41 @@ class _BottomNavigationBarExampleState
               Icons.home,
               color: Colors.teal,
             ),
-            label: 'Home',
+            label: '홈',
           ),
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.home,
+              Icons.auto_graph_sharp,
               color: Colors.teal,
             ),
-            label: 'Home',
+            label: '전략',
           ),
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.home,
+              Icons.access_time,
               color: Colors.teal,
             ),
-            label: 'Home',
+            label: '기록',
           ),
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.business,
+              Icons.account_box_outlined,
               color: Colors.teal,
             ),
-            label: 'Business',
+            label: '자산',
           ),
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.school,
-              color: Colors.teal,
+              Icons.info_outline,
+              color: Colors.indigo,
             ),
-            label: 'School',
+            label: '정보',
+
           ),
         ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: Colors.amber[800],
-        onTap: _onItemTapped,
+        currentIndex: _selectedIndex, // 현재 활성화 된 바텀네비게이션 바에대한 아이템에 대한 인덱스값
+        selectedItemColor: Colors.amber[800], // 아이템을 선택시 변경되는 색상
+        onTap: _onItemTapped, // 제스처 (탭 레이아웃을 눌렀을 때 실행 되는함수)
       ),
     );
   }

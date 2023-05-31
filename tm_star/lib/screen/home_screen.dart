@@ -12,7 +12,7 @@ class HomeScreen extends StatelessWidget {
         backgroundColor: Colors.teal,
       ),
       body: Container(
-        child: BottomNavigationBarExample(),
+        child: BottomTabBar(),
       ),
     );
   }
