@@ -1,0 +1,18 @@
+{
+  "@@locale": "en",
+   "hello": "Hello {name}",
+   "@hello" : {
+        "description": "welcome message",
+        "placeholders":{
+            "name":{
+                "description":"username",
+                "example":"FRONQUEY"
+            }
+        }
+   },
+   "good" : "GOOD",
+   "morning":"MORNING",
+  "app_title" : "app title",
+  "splash_text_1" : "example1",
+  "splash_text_2" : "example2"
+}
